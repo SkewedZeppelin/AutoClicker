@@ -22,3 +22,4 @@ Reasons for Creation || Issues with Similar Programs
 Credits
 -------
 - JNativeHook: https://github.com/kwhat/jnativehook
+- Icon: http://ic8.link/10337

@@ -1,0 +1,22 @@
+# Maintainer: Tad D <tad@spotco.us>
+pkgname=autoclicker
+pkgver=v1.0
+pkgrel=1
+pkgdesc="A multiplatform Java based autoclicker"
+arch=('any')
+url="https://github.com/SpotComms/AutoClicker"
+license=('MIT')
+depends=('java-runtime>=8')
+source=($url/releases/download/$pkgver/$pkgname.jar $pkgname.desktop $pkgname.png)
+md5sums=('2ce788f938208f4ea121a20c22460f82' '992a89bf40eaccf878657627227151ac' 'e50c5cb98e0633e109303c7fc20c01b2')
+
+build() {
+  /bin/true
+}
+
+package() {
+  cd "$srcdir"
+  install -Dm644 $pkgname.jar "$pkgdir/usr/share/java/$pkgname/$pkgname.jar"
+  install -Dm644 $pkgname.desktop "$pkgdir/usr/share/applications/$pkgname.desktop"
+  install -Dm644 $pkgname.png "$pkgdir/usr/share/pixmaps/$pkgname.png"
+}
