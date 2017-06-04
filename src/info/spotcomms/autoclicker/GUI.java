@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2015 Spot Communications, Inc.
+ */
+
 package info.spotcomms.autoclicker;
 
 import org.jnativehook.GlobalScreen;
