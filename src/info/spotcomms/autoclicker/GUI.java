@@ -71,8 +71,8 @@ public class GUI extends JFrame implements ActionListener, NativeKeyListener {
             Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
             logger.setLevel(Level.OFF);
             Handler[] handlers = Logger.getLogger("").getHandlers();
-            for (int i = 0; i < handlers.length; i++) {
-                handlers[i].setLevel(Level.OFF);
+            for (Handler handler : handlers) {
+                handler.setLevel(Level.OFF);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +93,7 @@ public class GUI extends JFrame implements ActionListener, NativeKeyListener {
         }
     }
 
-    public void startAutoClicker() {
+    private void startAutoClicker() {
         btnStart.setEnabled(false);
         btnStop.setEnabled(true);
         running = true;
@@ -101,7 +101,7 @@ public class GUI extends JFrame implements ActionListener, NativeKeyListener {
         autoClicker.start();
     }
 
-    public void stopAutoClicker() {
+    private void stopAutoClicker() {
         btnStart.setEnabled(true);
         btnStop.setEnabled(false);
         running = false;
@@ -109,28 +109,25 @@ public class GUI extends JFrame implements ActionListener, NativeKeyListener {
         autoClicker = null;
     }
 
-    public Thread autoClicker(final int startDelay, final int delay, final int clickType, final int clickAmt) {
-        Thread autoClicker = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Robot r = new Robot();
-                    r.delay(startDelay);
-                    while (true) {
-                        if (running) {
-                            for (int x = 0; x <= clickAmt; x++) {
-                                r.mousePress(clickType);
-                                r.delay(10);
-                                r.mouseRelease(clickType);
-                            }
-                            r.delay(delay);
+    private Thread autoClicker(final int startDelay, final int delay, final int clickType, final int clickAmt) {
+        return new Thread(() -> {
+            try {
+                Robot r = new Robot();
+                r.delay(startDelay);
+                while (true) {
+                    if (running) {
+                        for (int x = 0; x <= clickAmt; x++) {
+                            r.mousePress(clickType);
+                            r.delay(10);
+                            r.mouseRelease(clickType);
                         }
+                        r.delay(delay);
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
-        return autoClicker;
     }
 
     @Override public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
