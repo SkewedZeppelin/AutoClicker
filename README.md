@@ -21,5 +21,5 @@ Reasons for Creation || Issues with Similar Programs
 
 Credits
 -------
-- JNativeHook: https://github.com/kwhat/jnativehook
-- Icon: http://ic8.link/10337
+- JNativeHook, GPLv3, https://github.com/kwhat/jnativehook
+- Icon: https://icons8.com/icon/10337/mouse
