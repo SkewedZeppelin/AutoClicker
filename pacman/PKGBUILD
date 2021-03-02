@@ -7,7 +7,7 @@ arch=('any')
 license=('GPL3')
 depends=('java-runtime>=8')
 source=($url/releases/download/$pkgver/$pkgname.jar $pkgname.desktop $pkgname.png)
-md5sums=('ed3f00041e6528e0ae2f4f2c53e7d184' '992a89bf40eaccf878657627227151ac' 'e50c5cb98e0633e109303c7fc20c01b2')
+md5sums=('ed3f00041e6528e0ae2f4f2c53e7d184' '992a89bf40eaccf878657627227151ac' '57d21fd07d02d40ea8da4b9539c1b8ae')
 
 build() {
   /bin/true

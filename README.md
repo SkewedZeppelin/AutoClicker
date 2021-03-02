@@ -22,4 +22,4 @@ Reasons for Creation || Issues with Similar Programs
 Credits
 -------
 - JNativeHook, GPLv3, https://github.com/kwhat/jnativehook
-- Icon: https://icons8.com/icon/10337/mouse
+- Icon: Google/Android/AOSP, License: Apache 2.0, https://google.github.io/material-design-icons/
