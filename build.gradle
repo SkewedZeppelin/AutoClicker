@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.intellij:forms_rt:7.0.3'
+    implementation 'com.1stleg:jnativehook:2.0.3'
+}
+
+sourceSets {
+    main {
+         java {
+            srcDirs = ['src']
+         }
+    }
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "info.spotcomms.autoclicker.Start")
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+def commit = "git rev-parse --short HEAD".execute().text.trim()
+def commitDate = "git show -s --format=%cs ".concat(commit).execute().text.trim()
+version = commitDate + '_' + commit
