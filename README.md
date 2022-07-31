@@ -7,6 +7,10 @@ Requirements
 - Linux, Mac OS X, Windows
 - 256MB
 
+Prebuilts
+---------
+- via CI: https://gitlab.com/IratePorcupine/autoclicker/-/jobs/artifacts/master/browse?job=build
+
 Known Issues
 ------------
 - The default key implies the user has a numpad on their keyboard
